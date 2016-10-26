@@ -5,14 +5,14 @@ session_start();
 require "helpers/functions.php";
 
 $routes = [];
-// $routes["/articles"] = array("controller" => "Articles",
-//                                 "method" => "index");
+$routes["/api/accounts/login"] = array("controller" => "Accounts",
+                                "method" => "login");
 
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     //$key = $_SERVER["REDIRECT_URL"];
     if (array_key_exists($key, $routes)) {
-        require "api/controllers/" . $routes[$key]["controller"] . ".php"; 
+        require "controllers/" . $routes[$key]["controller"] . ".php"; 
         $controller = new $routes[$key]["controller"]();
         $response = $controller->$routes[$key]["method"]();
    
