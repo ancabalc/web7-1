@@ -1,14 +1,16 @@
 <?php
+
 session_start();
 
 require "helpers/functions.php";
 
+$routes = [];
 // $routes["/articles"] = array("controller" => "Articles",
 //                                 "method" => "index");
 
-if (isset($_SERVER["PATH_INFO"])) {
-    $key = rtrim($_SERVER['PATH_INFO'], '/');
-    //$key = $_SERVER["PATH_INFO"];
+if (isset($_SERVER["REDIRECT_URL"])) {
+    $key = rtrim($_SERVER['REDIRECT_URL'], '/');
+    //$key = $_SERVER["REDIRECT_URL"];
     if (array_key_exists($key, $routes)) {
         require "api/controllers/" . $routes[$key]["controller"] . ".php"; 
         $controller = new $routes[$key]["controller"]();

@@ -1,6 +1,5 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
-#RewriteCond $1 !^(index.html|api)
-#RewriteRule ^/api/(.*)$ /api/api.php/$1 [L,NC]
+RewriteRule ^api/(.*)$ api/api.php [L]
 </IfModule>
