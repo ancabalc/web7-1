@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD:api/models/UsersModel.php
 
 require_once "db.php";
-=======
-require "api/models/UsersModel.php";
-require_once "../models/db.php";
->>>>>>> 5f20ec863127646acf58aa6717e519e6e69e6eb7:api/controllers/Users.php
 
 class UsersModel extends DB {
     public function createUser($user) {
