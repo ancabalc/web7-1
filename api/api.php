@@ -3,8 +3,8 @@ session_start();
 
 require "helpers/functions.php";
 
-// $routes["/articles"] = array("controller" => "Articles",
-//                                 "method" => "index");
+$routes["/accounts/login"] = array("controller" => "Accounts",
+                                "method" => "login");
 
 if (isset($_SERVER["PATH_INFO"])) {
     $key = rtrim($_SERVER['PATH_INFO'], '/');
