@@ -1,4 +1,5 @@
 <?php
+
 require_once "db.php";
 
 class UsersModel extends DB {
@@ -9,10 +10,17 @@ class UsersModel extends DB {
                    ':role' => $user["role"]];
                    
         $sql = 'INSERT INTO users(name, email, password, role) VALUES(:name, :email, :password, :role)';
-        $sth = $this->dbh->prepare();
+        $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         
         return $this->dbh->lastInsertId();
+    }
+    
+    function getUserById($id) {
+        $sql = "SELECT * FROM users WHERE id=" . $id;
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_ASSOC);
     }
     
     function updateUser($data) {
@@ -26,7 +34,7 @@ class UsersModel extends DB {
                 WHERE id=:id';
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-        return $sth->rowCount(); 
+        return $sth->rowCount();
     }
     
     function loginUser($email) {
