@@ -1,26 +1,30 @@
 <?php
+
 session_start();
 
 require "helpers/functions.php";
 
-$routes["/accounts/login"] = array("controller" => "Accounts",
-                                "method" => "login");
-
-if (isset($_SERVER["PATH_INFO"])) {
-    $key = rtrim($_SERVER['PATH_INFO'], '/');
     //$key = $_SERVER["PATH_INFO"];
+$routes = [];
+$routes["/api/accounts/login"] = array("controller" => "Accounts",
+                                "method" => "login");
+$routes["/api/accounts/create"] = array("controller" => "Accounts",
+                                "method" => "create");
+$routes["/api/controllers/users/update"] = array("controller" => "Users",
+                                "method" => "updateUser");
+                                
+if (isset($_SERVER["REDIRECT_URL"])) {
+    $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {
-        require "api/controllers/" . $routes[$key]["controller"] . ".php"; 
+        require "controllers/" . $routes[$key]["controller"] . ".php"; 
         $controller = new $routes[$key]["controller"]();
         $response = $controller->$routes[$key]["method"]();
    
         // Print response for XHR|AJAX JS
         api_response($response, http_response_code());
-    }
-    else {
+    } else {
         api_response(array("error"=>"Page not found"), 404);
     }
-}
-else {
+} else {
     api_response(array("error"=>"Access Forbidden"), 403);
 }
