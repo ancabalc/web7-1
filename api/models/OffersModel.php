@@ -17,5 +17,3 @@ class OffersModel extends DB {
     }
     
 }
-
-       

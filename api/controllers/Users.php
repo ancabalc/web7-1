@@ -1,5 +1,5 @@
 <?php
-require "api/models/UsersModel.php";
+
 require_once "../models/db.php";
 
 class Users extends DB {
@@ -16,19 +16,16 @@ class Users extends DB {
         return $this->dbh->lastInsertId();
     }
     
-    public function updateUser() {
-        if (isset($_POST["id"])) {
-            if (isset($_POST["email"]) || isset($_POST["password"])) {
-                $usersModel = new UsersModel();
-                $user = $usersModel->updateUser($_POST);
-                if ($user) {
-                    $response = array("success"=>TRUE);  
-                }
-                else {
-                   $response = array("error"=>"error");        
-                }
-                return $response;
-            } 
-        }
+    public function update() {
+        
     }
+    
+    public function listUsers () {
+        $listUsersModel = new UsersModel();
+        $response = $listUsersModel->listUsers();
+        return $response;
+    }
+    
 }
+
+      
