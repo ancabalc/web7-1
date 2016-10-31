@@ -9,6 +9,8 @@ $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                 "method" => "login");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
                                 "method" => "create");
+$routes["/api/users"] = array("controller" => "Users",
+                                "method" => "listUsers");        
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {

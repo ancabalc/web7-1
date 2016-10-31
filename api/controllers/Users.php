@@ -19,4 +19,13 @@ class Users extends DB {
     public function update() {
         
     }
+    
+    public function listUsers () {
+        $listUsersModel = new UsersModel();
+        $response = $listUsersModel->listUsers();
+        return $response;
+    }
+    
 }
+
+      
