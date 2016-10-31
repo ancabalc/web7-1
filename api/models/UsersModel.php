@@ -1,7 +1,6 @@
 <?php
 
 require_once "db.php";
-require_once "controllers/Accounts.php";
 
 class UsersModel extends DB {
     public function createUser($user) {
@@ -49,4 +48,13 @@ class UsersModel extends DB {
        
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
+    
+    function listUsers() {
+        
+        $sql = "SELECT name, description, image FROM users where ROWNUM <= 3";
+        $sth = $this ->dbh -> prepare($sql);
+        $sth -> execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+      }
 }
+

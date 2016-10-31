@@ -10,6 +10,10 @@ $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                 "method" => "login");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
                                 "method" => "create");
+
+$routes["/api/users"] = array("controller" => "Users",
+                                "method" => "listUsers");        
+
 $routes["/api/controllers/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
                                 

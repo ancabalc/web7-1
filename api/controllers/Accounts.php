@@ -44,12 +44,10 @@ class Accounts {
             }
             
             if (empty($_POST["password"])) {
-                $errors["passsword"] = "Password is required";    
+                $errors["passsword"] = "Password is required";
             }
         
             if (empty($errors)) {
-                $salt = '1#$2';
-                
                 require "models/UsersModel.php";
                 $usersModel = new UsersModel();
                 $user = $usersModel->loginUser($_POST["email"]);
@@ -58,10 +56,13 @@ class Accounts {
                     $errors["invalid"] = "Invalid credentials";
                 }
                 else {
-                    if($_POST["password"] == crypt($_POST["email"],$salt)) {
+                    if(crypt($_POST["password"],$user['password']) == $user["password"]) {
                         $_SESSION["isLogged"] = TRUE;
                         $_SESSION["user"] = $user;
                         return $user;
+                    }
+                    else {
+                        $errors["password"] = "Invalid Password";
                     }
                     
                 }
