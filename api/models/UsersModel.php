@@ -1,8 +1,8 @@
 <?php
 
-require_once "../models/db.php";
+require_once "db.php";
 
-class Users extends DB {
+class UsersModel extends DB {
     public function createUser($user) {
         $params = [':name' => $user["name"],
                    ':email' => $user["email"],
