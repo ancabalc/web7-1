@@ -1,11 +1,5 @@
 <?php
-<<<<<<< HEAD:api/models/UsersModel.php
-
 require_once "db.php";
-=======
-require "api/models/UsersModel.php";
-require_once "../models/db.php";
->>>>>>> 5f20ec863127646acf58aa6717e519e6e69e6eb7:api/controllers/Users.php
 
 class UsersModel extends DB {
     public function createUser($user) {
@@ -36,4 +30,24 @@ class UsersModel extends DB {
             } 
         }
     }
+    
+    function loginUser($email) {
+        
+        $params = [':email' => $email];
+
+        $sql = 'SELECT email,password FROM users WHERE email = :email';
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+       
+        return $sth->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    function listUsers() {
+        
+        $sql = "SELECT name, description, image FROM users where ROWNUM <= 3";
+        $sth = $this ->dbh -> prepare($sql);
+        $sth -> execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+      }
 }
+
