@@ -42,4 +42,13 @@ class UsersModel extends DB {
        
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
+    
+    function listUsers() {
+        
+        $sql = "SELECT name, description, image FROM users where ROWNUM <= 3";
+        $sth = $this ->dbh -> prepare($sql);
+        $sth -> execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+      }
 }
+
