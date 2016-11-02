@@ -7,9 +7,11 @@ class UsersModel extends DB {
         $params = [':name' => $user["name"],
                    ':email' => $user["email"],
                    ':password' => $user["password"],
-                   ':role' => $user["role"]];
+                   ':role' => $user["role"],
+                   ':description' => $user["description"],
+                   ':image' => $user["avatar"]];
                    
-        $sql = 'INSERT INTO users(name, email, password, role) VALUES(:name, :email, :password, :role)';
+        $sql = 'INSERT INTO users(name, email, password, role, description, image) VALUES(:name, :email, :password, :role, :description, :image)';
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         
@@ -22,6 +24,7 @@ class UsersModel extends DB {
         $sth->execute();
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
+    
     public function updateUser() {
         if (isset($_POST["id"])) {
             if (isset($_POST["email"]) || isset($_POST["password"])) {
@@ -55,6 +58,6 @@ class UsersModel extends DB {
         $sth = $this ->dbh -> prepare($sql);
         $sth -> execute();
         return $sth->fetchAll(PDO::FETCH_ASSOC);
-      }
+    }
 }
 
