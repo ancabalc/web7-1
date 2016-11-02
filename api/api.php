@@ -9,8 +9,10 @@ $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                 "method" => "login");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
                                 "method" => "create");
-$routes["/api/controllers/users/update"] = array("controller" => "Users",
+$routes["/api/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
+$routes["/api/applications"] = array ("controller" => "Applications",
+                                    "method" => "getApplications");
                                 
  $routes["/api/controllers/offers"] = array("controller" => "Offers",
                                 "method" => "listItems");
