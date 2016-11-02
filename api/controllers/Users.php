@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/db.php";
+require_once "db.php";
 
 class Users extends DB {
     public function createUser($user) {

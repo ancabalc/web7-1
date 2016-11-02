@@ -9,7 +9,7 @@ class Accounts {
             } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                 $errors["email"] = "Email is invalid";
             }
-            $patternPassword = '/^[a-z0-9$#_]{5,15}$/i';
+            $patternPassword = '/^[a-z0-9$#_\.]{5,15}$/i';
             if (empty($_POST["password"])) {
                 $errors["password"] = "Password is required";     
             } elseif (!preg_match($patternPassword, $_POST["password"])) {

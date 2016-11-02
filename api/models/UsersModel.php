@@ -9,7 +9,7 @@ class UsersModel extends DB {
                    ':password' => $user["password"],
                    ':role' => $user["role"]];
                    
-        $sql = 'INSERT INTO users(name, email, password, role) VALUES(:name, :email, :password, :role)';
+        $sql = 'INSERT INTO users(name, email, password, role, description, image) VALUES(:name, :email, :password, :role, :description, :image)';
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         
@@ -35,6 +35,7 @@ class UsersModel extends DB {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         return $sth->rowCount();
+
     }
     
     function loginUser($email) {
@@ -56,5 +57,7 @@ class UsersModel extends DB {
         $sth = $this ->dbh -> prepare($sql);
         $sth -> execute();
         return $sth->fetchAll(PDO::FETCH_ASSOC);
+
     }   
-}
+
+}   
