@@ -9,7 +9,7 @@ class UsersModel extends DB {
                    ':password' => $user["password"],
                    ':role' => $user["role"],
                    ':description' => $user["description"],
-                   ':image' => $user["avatar"]];
+                   ':image' => $user["image"]];
                    
         $sql = 'INSERT INTO users(name, email, password, role, description, image) VALUES(:name, :email, :password, :role, :description, :image)';
         $sth = $this->dbh->prepare($sql);
@@ -25,20 +25,19 @@ class UsersModel extends DB {
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
     
-    public function updateUser() {
-        if (isset($_POST["id"])) {
-            if (isset($_POST["email"]) || isset($_POST["password"])) {
-                $usersModel = new UsersModel();
-                $user = $usersModel->updateUser($_POST);
-                if ($user) {
-                    $response = array("success"=>TRUE);  
-                }
-                else {
-                   $response = array("error"=>"error");        
-                }
-                return $response;
-            } 
-        }
+    function updateUser($data) {
+        $params = [':id' => $data["id"],
+                   ':name' => $data["name"],
+                   ':description' => $data["description"],
+                   ':image' => $data["image"]];
+        
+        $sql = 'UPDATE users
+                SET name=:name, description=:description, image=:image
+                WHERE id=:id';
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        return $sth->rowCount();
+
     }
     
     function loginUser($email) {
