@@ -1,17 +1,18 @@
 <?php
-
 session_start();
-
 require "helpers/functions.php";
-
 $routes = [];
 $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                 "method" => "login");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
                                 "method" => "create");
-$routes["/api/controllers/users/update"] = array("controller" => "Users",
+$routes["/api/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
-                                
+$routes["/api/applications"] = array ("controller" => "Applications",
+                                    "method" => "getApplications");
+$routes["/api/applications/create"] = array("controller" => "Applications",
+    "method" => "createApplications");
+    
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {
