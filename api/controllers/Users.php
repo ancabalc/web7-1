@@ -1,5 +1,5 @@
 <?php
-require "api/models/UsersModel.php";
+
 require_once "../models/db.php";
 
 class Users extends DB {
@@ -17,18 +17,48 @@ class Users extends DB {
     }
     
     public function updateUser() {
-        if (isset($_POST["id"])) {
-            if (isset($_POST["email"]) || isset($_POST["password"])) {
-                $usersModel = new UsersModel();
-                $user = $usersModel->updateUser($_POST);
-                if ($user) {
-                    $response = array("success"=>TRUE);  
-                }
-                else {
-                   $response = array("error"=>"error");        
-                }
-                return $response;
-            } 
+        $errors = array();
+        if (isset($_POST["name"])) {
+            if (empty($_POST["name"])) {
+                $errors["name"] = "Name is required";
+            }
+            
+            if (empty($_POST["description"])) {
+                $errors["description"] = "Description is required";
+            }
+            
+            if (empty($_FILES["file"])) {
+                $file = $_FILES["file"];
+            }
         }
+        
+        if (empty($errors)) {
+            require "models/UsersModel.php";
+                
+            $usersModel = new UsersModel();
+            $user = $usersModel->updateUser($_POST);
+            if ($user) {
+                $response = array("success"=>TRUE);
+                move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
+            }
+            else {
+               $response = array("error"=>"error");        
+            }
+            return $response;
+        }
+        else {
+            $errors["invalid"] = "Request invalid";
+        }
+        
+        return array("errors" => $errors);
     }
+    
+    public function listUsers () {
+        $listUsersModel = new UsersModel();
+        $response = $listUsersModel->listUsers();
+        return $response;
+    }
+    
 }
+
+      
