@@ -1,9 +1,22 @@
 <?php
+
+require "models/OffersModel.php";
+
 class Offers {
-    public function create() {
+    function createOffers() {
+        //  $response = validate_request();
+        //  if ($response['error']) return $response;
         
+         if (!empty($_POST["description"])){
+           $offersModel = new OffersModel();
+           $id = $offersModel -> createOffers($_POST);
+           return array("id" =>$id);
+           
+       }
     }
-    public function listItems() {
-        
+    function listOffers() {
+        $offersModel = new OffersModel();
+        $offers = $offersModel -> getAll();
+        return $offersModel->getAll();
     }
 }
