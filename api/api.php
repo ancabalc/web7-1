@@ -13,10 +13,10 @@ $routes["/api/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
 $routes["/api/applications"] = array ("controller" => "Applications",
                                     "method" => "getApplications");
-$routes["api/users"] = array ("controller" => "Users",
+$routes["/api/users/listUsers"] = array ("controller" => "Users",
                                     "method" => "listUsers");
                                 
- $routes["/api/controllers/offers"] = array("controller" => "Offers",
+$routes["/api/controllers/offers"] = array("controller" => "Offers",
                                 "method" => "listItems");
                         
 if (isset($_SERVER["REDIRECT_URL"])) {
