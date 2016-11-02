@@ -12,6 +12,9 @@ $routes["/api/accounts/create"] = array("controller" => "Accounts",
 $routes["/api/controllers/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
                                 
+ $routes["/api/controllers/offers"] = array("controller" => "Offers",
+                                "method" => "listItems");
+                        
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {
