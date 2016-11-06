@@ -1,6 +1,6 @@
 <?php
 
-require_once "../models/db.php";
+require_once "db.php";
 
 class Users extends DB {
     public function createUser($user) {
@@ -53,11 +53,12 @@ class Users extends DB {
         return array("errors" => $errors);
     }
     
-    public function listUsers () {
+      public function listUsers () {
+        $limit = empty($_GET['items']) ? 0 : $_GET['items'];
         $listUsersModel = new UsersModel();
-        $response = $listUsersModel->listUsers();
+        $response = $listUsersModel->listUsers($limit);
         return $response;
-    }
+      }
     
 }
 
