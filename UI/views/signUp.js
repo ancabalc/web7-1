@@ -1,10 +1,9 @@
 /*global $*/
-/*global User*/
+/*global Users*/
 $(window).ready(function(){
     $('.sign-up-btn').on('click', function(event){
         event.preventDefault();
-        // console.log('sign up pressed');
-        var user = new User();
+        var user = new Users();
         var name = $('.name-input').val();
         var email = $('.email-input').val();
         var password = $('.password-input').val();

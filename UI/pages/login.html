@@ -21,9 +21,17 @@
         <meta content="" name="author"/>
 
         <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <!--<link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">-->
         <link href="../layout/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="../layout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- Jquery -->
+        <script   src="//code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+        
+        <!-- JavaScript -->
+        
+        <script type="text/javascript" src="../views/login.js"></script>
+        <script type="text/javascript" src="../models/Users.js"></script>
 
         <!-- PAGE LEVEL PLUGIN STYLES -->
         <link href="../layout/css/animate.css" rel="stylesheet">
@@ -124,12 +132,13 @@
                     <div class="col-md-5 col-sm-7">
                         <form>
                             <div class="margin-b-10">
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" name="email-value" placeholder="Email">
                             </div>
                             <div class="margin-b-10">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Login</button>
+                            <button type="submit" class="login-btn btn-theme btn-theme-sm btn-base-bg text-uppercase">Login</button>
+                            <p class="invalidCredentials"></p>
                         </form>
                     </div>
                 </div>

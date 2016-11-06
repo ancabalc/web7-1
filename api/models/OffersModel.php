@@ -16,5 +16,12 @@ class OffersModel extends DB {
         return $this->dbh->lastInsertId();
     } 
     
+    function getOffersById($id) {
+        $sql = 'SELECT * FROM offers WHERE application_id=' . $id;
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>
