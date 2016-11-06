@@ -2,6 +2,9 @@
 
 session_start();
 
+ini_set('display_errors', 1);
+
+
 require "helpers/functions.php";
 
 $routes = [];
