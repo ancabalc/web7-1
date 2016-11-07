@@ -34,19 +34,17 @@ Users.prototype.save = function(name, email, password, repassword, role, descrip
         type:"POST",
         url:"https://web7-1-ccampean.c9users.io/api/accounts/create",
         data: {
-            name: name,
-            email: email,
-            password: password,
-            repassword: repassword,
-            role: role,
-            description: description,
-            image: image
+            name:name,
+            email:email,
+            password:password,
+            repassword:repassword,
+            role:role,
+            description:description,
+            image:image
         },
         success:function(resp){
             if (resp.id) {
                 window.location.href = "index.html";
-            } else {
-                console.log(resp);
             }
         },
         error:function(xhr, status, errorMessage){
@@ -54,4 +52,30 @@ Users.prototype.save = function(name, email, password, repassword, role, descrip
         }
     });
     return false;
+};
+
+Users.prototype.updateUser = function(name,description,image) {
+        
+        var ajaxOptions = {
+            url:"https://web7-1-mihaitm.c9users.io/api/users/update",
+            type:"POST",
+            dataType:"json",
+            data:{
+                name:name,
+                description:description,
+                image:image,
+            },
+            success:function(resp){
+                window.updateResp = resp;
+                window.currentUser = resp;
+                console.log("Your profile is updated!");
+            },
+            error:function(xhr,status,errorMessage){
+                console.log("Error status:"+status);
+            },
+            complete:function(){
+                console.log("AJAX Request has completed");
+            }
+        };
+        return $.ajax(ajaxOptions);
 };
