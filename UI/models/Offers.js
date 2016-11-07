@@ -1,6 +1,7 @@
 function Offer(options) {
     this.applicationId = options.application_id;
     this.desc = options.description;
+    this.models = [];
 }
 
 Offer.prototype.getOffers = function(applicationId) {
@@ -10,10 +11,13 @@ Offer.prototype.getOffers = function(applicationId) {
             type:"GET",
             dataType:"json",
             success:function(resp){
+                //console.log(resp);
+                that.models = [];
                 for(var i = 0; i<resp.length; i++){
-                    var offer = new Offer(resp[i]);
-                    that.models.push(offer);
+                    var offers = new Offer(resp[i]);
+                    that.models.push(offers);
                 }
+                //console.log('Offers:' , that.models);
             },
             error:function(xhr,status,errorMessage){
                 console.log("Error status:"+status);
