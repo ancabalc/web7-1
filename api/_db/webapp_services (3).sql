@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` enum('provider','client') DEFAULT NULL,
+  `job` varchar(255) NOT NULL,
   `description` text,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -114,8 +115,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Salvarea datelor din tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `description`, `image`) VALUES
-(1, 'Pop Ion', 'ipop@gmail.com', '****eee**twqf', 'client', 'haha', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `job`, `description`, `image`) VALUES
+(1, 'Pop Ion', 'ipop@gmail.com', '****eee**twqf', 'provider', 'mecanic', 'haha', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
