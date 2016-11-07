@@ -1,9 +1,33 @@
 <?php
 require "models/ApplicationsModel.php";
+
 class Applications {
-    public function createApplications() {
+    public function createApplications () {
         $response = validate_request();
         if ($response['error']) return $response;
+        
+         $errors = array();
+        
+        if (empty($_POST["title"])) {
+            $errors["title"] = "Please insert title";
+        } 
+        if (empty($_POST["description"])) {
+            $errors["description"] = "Please insert description";
+        }
+        if (empty($_POST["active"])) {
+            $errors["active"] = "Active is required";
+        }
+        if(empty($errors)) {
+            $applicationsModels = new ApplicationsModels();
+            $applicationId = $applicationsModels->createApplications($_POST);
+            if ($applicationId) {
+                return ($_POST["title"]); 
+                return ($_POST["description"]);
+                return ($_POST["active"]);
+            }
+        } else {
+            return $errors;
+        }
      
         $_POST[] = "";
         if (isset($_FILES["file"])) {
@@ -12,6 +36,7 @@ class Applications {
         
             $_POST[] = $file["name"];
         }
+        
     }
     function validateApplications() {
         $appTitle = mysql_query("SELECT title FROM applications WHERE id = 1");
@@ -24,10 +49,8 @@ class Applications {
         echo $result['appDescription'];
     }
     
-    public function getApplications() {
-
+    function getApplications() {
         $applicationsModel = new ApplicationsModel();
         return $applicationsModel -> getApplications();
-
     }
-}
+};

@@ -7,7 +7,9 @@ class UsersModel extends DB {
         $params = [':name' => $user["name"],
                    ':email' => $user["email"],
                    ':password' => $user["password"],
-                   ':role' => $user["role"]];
+                   ':role' => $user["role"],
+                   ':description' => $user["description"],
+                   ':image' => $user["image"]];
                    
         $sql = 'INSERT INTO users(name, email, password, role, description, image) VALUES(:name, :email, :password, :role, :description, :image)';
         $sth = $this->dbh->prepare($sql);
