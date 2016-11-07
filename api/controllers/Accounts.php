@@ -27,7 +27,7 @@ class Accounts {
                 $usersModel = new UsersModel();
                 $userId = $usersModel->createUser($_POST);
                 if($userId) {
-                    return json_encode($usersModel->getUserById($userId));
+                    return $usersModel->getUserById($userId);
                 }
             } else {
                 return $errors;
