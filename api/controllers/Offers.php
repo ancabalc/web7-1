@@ -27,6 +27,8 @@ class Offers {
     
     function listItems() {
         $offersModel = new OffersModel();
-        return $offersModel->getOffersById($_GET['id']);
+        $offers = $offersModel->getOffersById($_GET['id']);
+        return $offers;
+        
     }
 }
