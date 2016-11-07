@@ -1,3 +1,4 @@
+/*global $*/
 function Offer(options) {
     this.applicationId = options.application_id;
     this.desc = options.description;
@@ -19,4 +20,4 @@ Offer.prototype.getOffers = function(applicationId) {
                 console.log("Error status:"+status);
             }
         });
-}
+};
