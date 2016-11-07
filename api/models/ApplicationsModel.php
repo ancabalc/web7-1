@@ -1,6 +1,7 @@
 <?php
 require_once "db.php";
-class ApplicationsModel extends DB {
+
+class ApplicationModel extends DB {
     public function getApplications() {
        $sql = 'SELECT * FROM applications';
         $sth = $this->dbh->prepare($sql);
@@ -15,13 +16,14 @@ class ApplicationsModel extends DB {
         $sth->execute();
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
+    
      public function createApplications($item) {
 
         $params = [':title' => $item["title"],
                    ':description' => $item["description"]];
 
-        $sql = 'INSERT INTO applications (title, description ) 
-                VALUES(:title , :description, 1)';
+        $sql = 'INSERT INTO applications (title, description)
+                VALUES ( :title , :description )';
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
 
