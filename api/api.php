@@ -21,7 +21,9 @@ $routes["/api/users/listUsers"] = array ("controller" => "Users",
                                 
 $routes["/api/controllers/offers"] = array("controller" => "Offers",
                                 "method" => "listItems");
-                        
+$routes["/api/controllers/provider"] = array("controller" => "Provider",
+                                "method" => "prov");
+
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {
