@@ -32,7 +32,7 @@ Users.prototype.loginUser = function(email,password) {
 Users.prototype.save = function(name, email, password, repassword, role, description, image) {
     $.ajax({
         type:"POST",
-        url:"https://web7-1-ccampean.c9users.io/api/accounts/create",
+        url:"/api/accounts/create",
         data: {
             name: name,
             email: email,

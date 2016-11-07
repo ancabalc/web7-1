@@ -21,7 +21,7 @@
         <meta content="" name="author"/>
 
         <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
         <link href="../layout/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="../layout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
@@ -124,20 +124,20 @@
                     <div class="col-md-5 col-sm-7">
                         <form method="POST" id="register-form" enctype="multipart/form-data">
                             <div class="margin-b-10">
-                                <input type="text" class="form-control name-input" name="name" placeholder="Nume">
+                                <input type="text" class="form-control name-input" name="name" placeholder="Nume" required>
                             </div>
                             <div class="margin-b-10">
-                                <input type="text" class="form-control email-input" name="email" placeholder="Email">
+                                <input type="text" class="form-control email-input" name="email" placeholder="Email" required>
                             </div>
                             <div class="margin-b-10">
-                                <input type="password" class="form-control password-input" name="password" placeholder="Parola">
+                                <input type="password" class="form-control password-input" name="password" placeholder="Parola" required>
                             </div>
                             <div class="margin-b-10">
-                                <input type="password" class="form-control repassword-input" name="repassword" placeholder="ReParola">
+                                <input type="password" class="form-control repassword-input" name="repassword" placeholder="ReParola" required>
                             </div>
                             <div class="margin-b-10">
-                                <input type="radio" name="role" value="client" class="role-input" /> Client
-                                <input type="radio" name="role" value="provider" class="role-input" /> Furnizor
+                                <input type="radio" required name="role" value="client" class="role-input"> Client
+                                <input type="radio" required name="role" value="provider" class="role-input"> Furnizor
                             </div>
                             <div class="margin-b-10">
                                 <input type="text" class="form-control description-input" name="description" placeholder="Descriere">

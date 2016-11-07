@@ -3,6 +3,14 @@
 $(window).ready(function(){
     $('.sign-up-btn').on('click', function(event){
         event.preventDefault();
+        // $('.email-input').on('keyup', function(event) {
+        //     if (this.validity.typeMismatch) {
+        //         this.setCustomValidity("I expect an e-mail, darling!");
+        //     } else {
+        //         this.setCustomValidity('');
+        //     }
+        //     // alert('ba');
+        // });
         var user = new Users();
         var name = $('.name-input').val();
         var email = $('.email-input').val();
