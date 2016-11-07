@@ -45,6 +45,8 @@ Users.prototype.save = function(name, email, password, repassword, role, descrip
         success:function(resp){
             if (resp.id) {
                 window.location.href = "index.html";
+            } else {
+                console.log(resp);
             }
         },
         error:function(xhr, status, errorMessage){

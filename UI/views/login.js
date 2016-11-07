@@ -1,3 +1,5 @@
+/*global $*/
+/*global Users*/
 $(window).ready(function(){
     
     $(".login-btn").on("click", function(e) {

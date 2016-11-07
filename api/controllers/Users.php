@@ -3,19 +3,6 @@
 require "models/UsersModel.php";
 
 class Users extends DB {
-    public function createUser($user) {
-        $params = [':name' => $user["name"],
-                   ':email' => $user["email"],
-                   ':password' => $user["password"],
-                   ':role' => $user["role"]];
-                   
-        $sql = 'INSERT INTO users(name, email, password, role) VALUES(:name, :email, :password, :role)';
-        $sth = $this->dbh->prepare();
-        $sth->execute($params);
-        
-        return $this->dbh->lastInsertId();
-    }
-    
     public function updateUser() {
         $errors = array();
         if (isset($_POST["name"])) {
