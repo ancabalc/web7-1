@@ -1,5 +1,6 @@
-function Users() {
-    
+/*global $*/
+function Users(){
+    this.models = [];
 }
 
 Users.prototype.loginUser = function(email,password) {
@@ -25,4 +26,4 @@ Users.prototype.loginUser = function(email,password) {
             }
         };
         return $.ajax(ajaxOptions);
-}
+};

@@ -24,4 +24,9 @@ class Offers {
            }
        return array("errors" => $errors);
     }
+    
+    function listItems() {
+        $offersModel = new OffersModel();
+        return $offersModel->getOffersById($_GET['id']);
+    }
 }
