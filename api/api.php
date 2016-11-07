@@ -1,12 +1,13 @@
 <?php
-
 session_start();
+<<<<<<< HEAD
+=======
 
 ini_set('display_errors', 1);
 
 
+>>>>>>> 7fe897d0a9239a6f2c71bb7bd5af1e99604e28c7
 require "helpers/functions.php";
-
 $routes = [];
 $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                 "method" => "login");
@@ -16,12 +17,20 @@ $routes["/api/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
 $routes["/api/applications"] = array ("controller" => "Applications",
                                     "method" => "getApplications");
+
+
+$routes["/api/applications/create"] = array("controller" => "Applications",
+    "method" => "createApplications");
+    
+
+
 $routes["/api/users/listUsers"] = array ("controller" => "Users",
                                     "method" => "listUsers");
-                                
+
 $routes["/api/controllers/offers"] = array("controller" => "Offers",
                                 "method" => "listItems");
                         
+
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
     if (array_key_exists($key, $routes)) {
