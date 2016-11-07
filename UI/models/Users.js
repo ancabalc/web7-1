@@ -57,11 +57,7 @@ Users.prototype.save = function(name, email, password, repassword, role, descrip
 Users.prototype.updateUser = function(name,description,image) {
         
         var ajaxOptions = {
-<<<<<<< HEAD
-            url:"https://web7-1-mihaitm.c9users.io/api/users/update",
-=======
             url:"/api/users/update",
->>>>>>> 15591ee578d0745e36f6fe92b182c347111080e4
             type:"POST",
             dataType:"json",
             data:{
