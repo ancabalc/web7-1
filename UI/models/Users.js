@@ -7,7 +7,7 @@ function Users() {
 Users.prototype.loginUser = function(email,password) {
         
         var ajaxOptions = {
-            url:"https://web7-1-alecsandrul.c9users.io/api/accounts/login",
+            url:"/api/accounts/login",
             type:"POST",
             dataType:"json",
             data:{
