@@ -20,7 +20,14 @@ class Accounts {
             } elseif ($_POST["password"] !== $_POST["repassword"]) {
                 $errors["repassword"] = "Not equal with password";    
             }
+            if (isset($_FILES["image"]) && is_uploaded_file($_FILES['image']['tmp_name'])) {
+                $file = $_FILES["image"];
+                move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]); 
+                $_POST["image"] = $file['name'];
+                
+            }
             if (empty($errors)) {
+                // var_dump($_POST);
                 $salt = '$1$';
                 $_POST["password"] = crypt($_POST["password"], $salt);
                 require "models/UsersModel.php";
