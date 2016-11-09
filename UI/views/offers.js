@@ -1,3 +1,4 @@
+/*global $*/
 $(window).ready(function(){
     
     var offer = new Offer(1);

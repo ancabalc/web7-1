@@ -19,7 +19,7 @@ $(window).ready(function(){
             $(".invalidCredentials").append(invalidCredentialsText);
          }
          else {
-            window.location.href = "https://web7-1-alecsandrul.c9users.io/UI/pages/";
+            window.location.href = "/UI/pages/";
          }
     }
         
