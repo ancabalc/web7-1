@@ -1,8 +1,12 @@
 <?php
 session_start();
+// <<<<<<< HEAD
+
+// =======
 // ini_set('display_errors', 1);
 
 
+// >>>>>>> 2a50dc189fa0e53ac621934b2902de0c8b853f33
 require "helpers/functions.php";
 $routes = [];
 $routes["/api/accounts/login"] = array("controller" => "Accounts",

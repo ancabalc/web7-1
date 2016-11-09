@@ -47,8 +47,8 @@ class Applications {
     }
     
     function getApplications() {
-    $applicationsModel = new ApplicationsModel();
-    return $applicationsModel -> getApplications();
+    $applicationModel = new ApplicationModel();
+    return $applicationModel -> getApplications();
      }
 }
 
