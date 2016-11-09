@@ -29,22 +29,16 @@ Users.prototype.loginUser = function(email,password) {
         return $.ajax(ajaxOptions);
 };
 
-Users.prototype.save = function(name, email, password, repassword, role, description, image) {
+Users.prototype.save = function(formData) {
     $.ajax({
         type:"POST",
         url:"/api/accounts/create",
-        data: {
-            name:name,
-            email:email,
-            password:password,
-            repassword:repassword,
-            role:role,
-            description:description,
-            image:image
-        },
+        data: formData,
+        processData:false,
+        contentType:false,
         success:function(resp){
             if (resp.id) {
-                window.location.href = "index.html";
+                window.location.href = "login.html";
             }
         },
         error:function(xhr, status, errorMessage){

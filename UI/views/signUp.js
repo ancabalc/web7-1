@@ -60,14 +60,18 @@ $(window).ready(function(){
     
     $('.sign-up-btn').on('click', function(event){
         event.preventDefault();
-        var user = new Users();
-        var name = $('.name-input').val();
-        var email = $('.email-input').val();
-        var password = $('.password-input').val();
-        var repassword = $('.repassword-input').val();
-        var role = $('#register-form .role-input:checked').val();
-        var description = $('.description-input').val();
-        var image = $('.image-input').val();
-        user.save(name, email, password, repassword, role, description, image);
+        
+        var formData = new FormData();
+        
+        formData.append("name", $('.name-input').val());
+        formData.append("email", $('.email-input').val());
+        formData.append("password", $('.password-input').val());
+        formData.append("repassword", $('.repassword-input').val());
+        formData.append("role", $('#register-form .role-input:checked').val());
+        formData.append("description", $('.description-input').val());
+        formData.append("image", $('.image-input')[0].files[0]);
+        
+        var users = new Users();
+        users.save(formData);
     });
 });
