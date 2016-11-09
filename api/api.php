@@ -1,29 +1,37 @@
 <?php
 session_start();
+// <<<<<<< HEAD
 
+// =======
+// ini_set('display_errors', 1);
+
+
+// >>>>>>> 2a50dc189fa0e53ac621934b2902de0c8b853f33
 require "helpers/functions.php";
 $routes = [];
 $routes["/api/accounts/login"] = array("controller" => "Accounts",
-                                "method" => "login");
+                                    "method" => "login");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
-                                "method" => "create");
+                                    "method" => "create");
 $routes["/api/users/update"] = array("controller" => "Users",
                                 "method" => "updateUser");
 $routes["/api/applications"] = array ("controller" => "Applications",
                                     "method" => "getApplications");
 
-
 $routes["/api/applications/create"] = array("controller" => "Applications",
-    "method" => "createApplications");
-    
-
+                                        "method" => "createApplications");
 
 $routes["/api/users/listUsers"] = array ("controller" => "Users",
                                     "method" => "listUsers");
 
 $routes["/api/controllers/offers"] = array("controller" => "Offers",
+
                                 "method" => "listItems");
+$routes["/api/controllers/provider"] = array("controller" => "Provider",
+                                "method" => "prov");
+                                        
                         
+
 
 if (isset($_SERVER["REDIRECT_URL"])) {
     $key = rtrim($_SERVER['REDIRECT_URL'], '/');
