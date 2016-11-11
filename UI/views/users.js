@@ -9,11 +9,12 @@ $(window).ready(function(){
     
     function populateUser(){
         var userModel = users.model;
+        $(".profile").append("<h2>"+userModel.name+"'s Profile</h2>");
         $("[name='name']").val(userModel.name);
         $("[job='job']").val(userModel.job);
         $("[name='description']").val(userModel.description);
         image = userModel.image;
-        $(".img-responsive").attr("src", 'https://web7-1-mihaitm.c9users.io/uploads/' + userModel.image);
+        $(".img-responsive").attr("src", '/uploads/' + userModel.image);
         
     }
     function readURL(input) {
@@ -38,8 +39,8 @@ $("#file").change(function(){
         var formData = new FormData();
         var nameValue = $("[name='name']").val();
         var jobValue = $("[job='job']").val();
-        var descriptionValue = $("#description").val();
-        var fileInput = $("[name='image']")[0];
+        var descriptionValue = $("[description='description']").val();
+        var fileInput = $("[image='image']")[0];
         
         formData.append("name",nameValue);
         formData.append("job",jobValue);
@@ -53,13 +54,13 @@ $("#file").change(function(){
         }
         
         $.ajax({
-            url:"https://web7-1-mihaitm.c9users.io/uploads?id="+id,
+            url:"/uploads?id="+id,
             type:"POST",
             data:formData,
             processData:false,
             contentType:false,
             success:function(resp){
-                window.location.href = "https://web7-1-mihaitm.c9users.io/UI/pages/user-profile.html";
+                window.location.href = "/UI/pages/user-profile.html";
             },
             error:function(){
                 console.log("Oops! Update profile failed");
