@@ -27,7 +27,6 @@ class Accounts {
                 
             }
             if (empty($errors)) {
-                // var_dump($_POST);
                 $salt = '$1$';
                 $_POST["password"] = crypt($_POST["password"], $salt);
                 require "models/UsersModel.php";
