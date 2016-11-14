@@ -81,4 +81,13 @@ class Accounts {
         return array("errors" => $errors);
         
     }
+    
+    function getUserProfile() {
+        $_SESSION["isLogged"] = true;
+        $_SESSION["user"] = array('id'=>1);
+            validate_request();
+            require "models/UsersModel.php";
+            $usersModel = new UsersModel();
+            return array("logged"=>TRUE, "user" => $usersModel->getUsersById($_SESSION["user"]['id']));   
+    }
 }
