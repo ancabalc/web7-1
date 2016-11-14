@@ -73,3 +73,27 @@ Users.prototype.updateUser = function(name,description,image) {
         };
         return $.ajax(ajaxOptions);
 };
+
+Users.prototype.getUserProfile= function(){
+        var that = this;
+        return $.ajax({
+            url:"/api/accounts/getUserProfile",
+            type:"GET",
+            dataType:"json",
+            success:function(resp){
+                var user = currentUser(resp.user);
+                that.model = user;
+                    if(user.profile==='provider'){
+                        window.location.href = "/pages/provider.html";
+                    }else {
+                        window.location.href = "/pages/client.html";
+                    }
+                },
+            error:function(xhr,status,errorMessage){
+                if(xhr.status == 401) {
+                    window.location.href = "index.html";
+                }
+                console.log("Error status:"+status);
+            }
+        });
+};

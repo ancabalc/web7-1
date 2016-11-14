@@ -25,10 +25,14 @@ $routes["/api/users/listUsers"] = array ("controller" => "Users",
                                     "method" => "listUsers");
 
 $routes["/api/controllers/offers"] = array("controller" => "Offers",
-
                                 "method" => "listItems");
 $routes["/api/controllers/provider"] = array("controller" => "Provider",
                                 "method" => "prov");
+                                
+$routes["/api/accounts/getUserProfile"] = array("controller" => "Accounts",
+                                "method" => "getUserProfile");                                 
+$routes["/api/session"] = array("controller" => "Accounts",
+                                "method" => "checkSession");
                                         
                         
 
