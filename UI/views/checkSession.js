@@ -20,13 +20,22 @@ $(window).ready(function(){
                                         '<a class="nav-item-child js-profile" href="user-profile.html">User Profile</a>' +
                                     '</li>' +
                                     '<li class="nav-item">' +
-                                        '<a href="#" class="nav-item-child logoutBtn">Logout</a>' +
+                                        '<a href="#" class="nav-item-child logoutBtn" id="abc">Logout</a>' +
                                     '</li>' +
                                 '</ul>' +
                             '</div>' +
                         '</div>';
                         $('.menu').append(menu);
                         activeClass();
+                        
+                        $(".logoutBtn").on("click",function() {
+                            $.ajax({
+                                url: '/api/accounts/logout',
+                                success: function(){
+                                    window.location.href = "/UI/pages/index.html";
+                                }
+                            });
+                        });
                     } else {
                         var menu =
                         '<div class="collapse navbar-collapse nav-collapse">' +
@@ -59,16 +68,9 @@ $(window).ready(function(){
         
     checkSession();
     
-    $(".logoutBtn").on("click",function() {
-            $.ajax({
-                url: '/api/accounts/logout',
-                success: function(){
-                    window.location.href = "/UI/pages/";
-                }
-            });
-        });
+    
         
-        function activeClass() {
+    function activeClass() {
             if (window.location.href.indexOf("index") != -1) {
                 $('.js-home').addClass('active');
             } else if (window.location.href.indexOf("applications") != -1) {
