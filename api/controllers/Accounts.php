@@ -20,6 +20,12 @@ class Accounts {
             } elseif ($_POST["password"] !== $_POST["repassword"]) {
                 $errors["repassword"] = "Not equal with password";    
             }
+            if (isset($_FILES["image"]) && is_uploaded_file($_FILES['image']['tmp_name'])) {
+                $file = $_FILES["image"];
+                move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]); 
+                $_POST["image"] = $file['name'];
+                
+            }
             if (empty($errors)) {
                 $salt = '$1$';
                 $_POST["password"] = crypt($_POST["password"], $salt);
@@ -91,5 +97,14 @@ class Accounts {
         session_destroy();
          
         return array("success"=>TRUE);
+    }
+    
+    function getUserProfile() {
+        $_SESSION["isLogged"] = true;
+        $_SESSION["user"] = array('id'=>1);
+            validate_request();
+            require "models/UsersModel.php";
+            $usersModel = new UsersModel();
+            return array("logged"=>TRUE, "user" => $usersModel->getUsersById($_SESSION["user"]['id']));   
     }
 }

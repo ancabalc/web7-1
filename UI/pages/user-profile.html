@@ -14,14 +14,14 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8"/>
-        <title>Metronic "Acidus" Frontend Freebie</title>
+        <title>Online Services</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
+        <!--<meta content="" name="description"/>-->
+        <!--<meta content="" name="author"/>-->
 
         <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
         <link href="../layout/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="../layout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
@@ -99,7 +99,7 @@
 
                                 <!-- Work -->
                                 <li class="nav-item">
-                                    <a class="nav-item-child signUp" href="singup.html">
+                                    <a class="nav-item-child signUp" href="sign.html">
                                         Sing-up
                                     </a>
                                 </li>
@@ -108,7 +108,7 @@
                                 <!-- Contact -->
                                 <li class="nav-item signIn">
                                     <a class="nav-item-child" href="login.html">
-                                        Sing-In
+                                        Sign-In
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -130,8 +130,7 @@
             <div class="content-md container">
                 <div class="row margin-b-40">
                     <div class="col-sm-6">
-                        <h2>User Profile</h2>
-                        <ul class="js-users"></ul>
+                        <h2 class=".profile"></h2>
                     </div>
                 </div>
                 <!--// end row -->
@@ -147,7 +146,7 @@
                     <div class="col-md-5 col-sm-7">
                         <form>
                             <div class="margin-b-10">
-                                <input type="text" class="form-control" placeholder="Name" value="name">
+                                <input type="text" class="form-control" placeholder="Name" name="name">
                             </div>
                             <!--<div class="margin-b-10">-->
                             <!--    <input type="text" class="form-control" placeholder="Email" value="email">-->
@@ -156,10 +155,10 @@
                             <!--    <input type="password" class="form-control" placeholder="Password">-->
                             <!--</div>-->
                             <div class="margin-b-10">
-                                <input type="text" class="form-control" placeholder="Job" value="job">
+                                <input type="text" class="form-control" placeholder="Job" job="job">
                             </div>
                             <div class="margin-b-10">
-                                <textarea type="text" class="form-control" id="Description" name="description"></textarea>
+                                <textarea type="text" class="form-control" placeholder="Description" description="description"></textarea>
                             </div>
                             <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Save</button>
                         </form>
@@ -180,8 +179,8 @@
                             <ul class="list-unstyled footer-list">
                                 <li class="footer-list-item"><a href="#">Home</a></li>
                                 <li class="footer-list-item"><a href="#">Applications</a></li>
-                                <li class="footer-list-item"><a href="#">Sing-up</a></li>
-                                <li class="footer-list-item"><a href="#">Sing-in</a></li>
+                                <li class="footer-list-item"><a href="#">Sign-up</a></li>
+                                <li class="footer-list-item"><a href="#">Sign-in</a></li>
                             </ul>
                             <!-- End List -->
                         </div>

@@ -19,7 +19,7 @@ $(window).ready(function(){
             $(".invalidCredentials").append(invalidCredentialsText);
          }
          else {
-            window.location.href = "/UI/pages/";
+            window.location.href = "/UI/pages/user-profile.html";
          }
     }
         

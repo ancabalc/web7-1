@@ -3,8 +3,8 @@ require "models/ApplicationsModel.php";
 
 class Applications {
     public function createApplications () {
-        $response = validate_request();
-        if ($response['error']) return $response;
+        // $response = validate_request();
+        // if ($response['error']) return $response;
         
          $errors = array();
         
@@ -18,26 +18,31 @@ class Applications {
             $errors["active"] = "Active is required";
         }
         if(empty($errors)) {
-            $applicationsModels = new ApplicationsModels();
-            $applicationId = $applicationsModels->createApplications($_POST);
-            if ($applicationId) {
-                return ($_POST["title"]); 
-                return ($_POST["description"]);
-                return ($_POST["active"]);
-            }
+            $applicationModel = new ApplicationModel();
+            $applicationId = $applicationModel-> createApplications($_POST);
+            return array("id" => $applicationId);
+            
         } else {
             return $errors;
         }
-     
+
         $_POST[] = "";
         if (isset($_FILES["file"])) {
-            $file = $_FILES["file"];
-            move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]);
+        $file = $_FILES["file"];
+        move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]);
         
-            $_POST[] = $file["name"];
+        $_POST[] = $file["name"];
         }
         
     }
+    
+    
+    public function getLoggedUserApplications() {
+        // $_SESSION["user"]["id"]
+        $allApp = new ApplicationModel();
+        return $allApp->getUserApplication($_SESSION["user"]["id"]);
+    }
+    
     function validateApplications() {
         $appTitle = mysql_query("SELECT title FROM applications WHERE id = 1");
         $result = mysql_fetch_array($appTitle);
@@ -50,7 +55,8 @@ class Applications {
     }
     
     function getApplications() {
-        $applicationsModel = new ApplicationsModel();
-        return $applicationsModel -> getApplications();
+    $applicationModel = new ApplicationModel();
+    return $applicationModel -> getApplications();
     }
-};
+}
+

@@ -29,22 +29,16 @@ Users.prototype.loginUser = function(email,password) {
         return $.ajax(ajaxOptions);
 };
 
-Users.prototype.save = function(name, email, password, repassword, role, description, image) {
+Users.prototype.save = function(formData) {
     $.ajax({
         type:"POST",
         url:"/api/accounts/create",
-        data: {
-            name:name,
-            email:email,
-            password:password,
-            repassword:repassword,
-            role:role,
-            description:description,
-            image:image
-        },
+        data: formData,
+        processData:false,
+        contentType:false,
         success:function(resp){
             if (resp.id) {
-                window.location.href = "index.html";
+                window.location.href = "login.html";
             }
         },
         error:function(xhr, status, errorMessage){
@@ -78,4 +72,28 @@ Users.prototype.updateUser = function(name,description,image) {
             }
         };
         return $.ajax(ajaxOptions);
+};
+
+Users.prototype.getUserProfile= function(){
+        var that = this;
+        return $.ajax({
+            url:"/api/accounts/getUserProfile",
+            type:"GET",
+            dataType:"json",
+            success:function(resp){
+                var user = currentUser(resp.user);
+                that.model = user;
+                    if(user.profile==='provider'){
+                        window.location.href = "/pages/provider.html";
+                    }else {
+                        window.location.href = "/pages/client.html";
+                    }
+                },
+            error:function(xhr,status,errorMessage){
+                if(xhr.status == 401) {
+                    window.location.href = "index.html";
+                }
+                console.log("Error status:"+status);
+            }
+        });
 };
