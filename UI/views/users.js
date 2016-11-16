@@ -3,7 +3,7 @@
 $(window).ready(function(){
     var users = new Users();
     var id = 1;
-    var userDef = users.getUser(id);
+    var userDef = users.getUserProfile(id);
     userDef.done(populateUser);
     var image = null;
     

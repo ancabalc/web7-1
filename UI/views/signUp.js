@@ -73,5 +73,6 @@ $(window).ready(function(){
         
         var users = new Users();
         users.save(formData);
+        window.location.href = "/UI/pages/user-profile.html";
     });
 });
