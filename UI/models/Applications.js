@@ -41,6 +41,7 @@ Applications.prototype.getLoggedUserApplications = function() {
                         '</div>' +
                         '<h3>' + resp[i]["title"] + '</h3>' +
                         '<p>' + resp[i]["description"] + '</p>' +
+                        '<p>' + resp[i]["creation_date"] + '</p>' +
                         '<a class="link" href="submit-offer.html">Apply for it</a>' +
                     '</div>' +
                 '</div>';
