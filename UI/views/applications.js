@@ -1,6 +1,6 @@
 /*global $*/
 $(window).ready(function(){
-    var applicationsContainer = $(".js-applications-container .row");
+    var applicationsContainer = $(".js-applications-container");
     var applications = new Applications();
     
     var applicationsDef = applications.getApplications();
@@ -9,8 +9,9 @@ $(window).ready(function(){
     
     
     function listApplications(){
-        var applicationsModels = applications.models;
-        for (var i=0; i<applicationsModels.length; i++){
+        applicationsContainer.html(""); 
+        var app = applications.models;
+        for (var i=0; i<app.length; i++){
             
              var applicationHtml = 
              '<div class="col-sm-4 sm-margin-b-50">'+
@@ -20,8 +21,8 @@ $(window).ready(function(){
                                     '<img class="img-responsive" src="../layout/img/770x860/01.jpg" alt="Team Image">'+
                                 '</div>'+
                             '</div>'+
-                            '<h3>' +applicationsModels[i].title +'</h3>'+
-                            '<p>'+ applicationsModels[i].description +'</p>'+
+                            '<h3>' +app[i].title +'</h3>'+
+                            '<p>'+ app[i].description +'</p>'+
                             '<a class="link" href="submit-offer.html">Apply for it</a>'+
                         '</div>'+
                         '</div>';

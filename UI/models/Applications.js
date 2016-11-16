@@ -1,12 +1,12 @@
 /*global $*/
-function Applications(){
-    this.models = [];
-}
-
-Applications.prototype.getApplications = function(){
+    function Applications(options){
+        this.models = [];
+    }
+    
+    Applications.prototype.getApplications = function(){
     var that = this;
     return $.ajax({
-            url:"https://web7-1-andreipuscas.c9users.io/api/applications",
+            url:"/api/applications",
             type:"GET",
             dataType:"json",
             success:function(resp){
