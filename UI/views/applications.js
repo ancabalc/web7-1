@@ -1,4 +1,6 @@
 /*global $*/
+/*global Applications*/
+
 $(window).ready(function(){
     var applicationsContainer = $(".js-applications-container .row");
     var applications = new Applications();
@@ -30,4 +32,9 @@ $(window).ready(function(){
         }
         
     }
+});
+
+$(window).on('load', function() {
+    var applicationsForLoggedUser = new Applications();
+    applicationsForLoggedUser.getLoggedUserApplications();
 });

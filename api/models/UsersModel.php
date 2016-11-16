@@ -44,7 +44,7 @@ class UsersModel extends DB {
         
         $params = [':email' => $email];
 
-        $sql = 'SELECT email,password FROM users WHERE email = :email';
+        $sql = 'SELECT id,email,password FROM users WHERE email = :email';
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
        
