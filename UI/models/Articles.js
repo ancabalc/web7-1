@@ -5,7 +5,7 @@ function Articles(){
 Articles.prototype.getArticles = function(){
     var that = this;
     return $.ajax({
-            url:,
+            //url:,
             type:"GET",
             dataType:"json",
             success:function(resp){

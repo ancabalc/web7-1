@@ -32,9 +32,17 @@ class Applications {
         move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]);
         
         $_POST[] = $file["name"];
-         }
+        }
         
     }
+    
+    
+    public function getLoggedUserApplications() {
+        // $_SESSION["user"]["id"]
+        $allApp = new ApplicationModel();
+        return $allApp->getUserApplication($_SESSION["user"]["id"]);
+    }
+    
     function validateApplications() {
         $appTitle = mysql_query("SELECT title FROM applications WHERE id = 1");
         $result = mysql_fetch_array($appTitle);
@@ -49,6 +57,6 @@ class Applications {
     function getApplications() {
     $applicationModel = new ApplicationModel();
     return $applicationModel -> getApplications();
-     }
+    }
 }
 

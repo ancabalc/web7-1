@@ -28,6 +28,7 @@ $(window).ready(function(){
                         '</div>';
             applicationsContainer.append(applicationHtml);
             
+            
         }
         
     }

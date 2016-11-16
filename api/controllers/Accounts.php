@@ -82,6 +82,23 @@ class Accounts {
         
     }
     
+    function checkSession() {
+        if (isset($_SESSION["isLogged"]) && ($_SESSION["isLogged"] == TRUE)) {
+            return array("logged"=>TRUE, "user" => $_SESSION["user"]);    
+        } 
+        else {
+            return array("logged"=>FALSE);  
+        }
+    }
+    
+    function logout() {
+        unset($_SESSION["isLogged"]);
+         unset($_SESSION["user"]);
+        session_destroy();
+         
+        return array("success"=>TRUE);
+    }
+    
     function getUserProfile() {
         $_SESSION["isLogged"] = true;
         $_SESSION["user"] = array('id'=>1);
