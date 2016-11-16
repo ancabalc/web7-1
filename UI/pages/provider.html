@@ -61,49 +61,9 @@
                         <!-- End Logo -->
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse nav-collapse">
-                        <div class="menu-container">
-                            <ul class="navbar-nav navbar-nav-right">
-                                <!-- Home -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child active" href="index.html">
-                                        Home
-                                    </a>
-                                </li>
-                                <!-- End Home -->
-
-                               <!-- About -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="applications.html">
-                                        Applications
-                                    </a>
-                                </li>
-                                <!-- End About -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="new-application.html">
-                                        New Application
-                                    </a>
-                                </li>
-
-
-                                <!-- Work -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" signup="work.html">
-                                        Sign-up
-                                    </a>
-                                </li>
-                                <!-- End Work -->
-
-                                <!-- Contact -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="login.html">
-                                        Sign-In
-                                    </a>
-                                </li>
-                                <!-- End Contact -->
-                            </ul>
-                        </div>
+                    <!-- We create the menu in Javascript-->
+                    <div class="menu">
+                        
                     </div>
                     <!-- End Navbar Collapse -->
                 </div>
@@ -215,6 +175,7 @@
         <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
         <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        
         <!-- CORE PLUGINS -->
         <script src="../layout/vendor/jquery.min.js" type="text/javascript"></script>
         <script src="../layout/vendor/jquery-migrate.min.js" type="text/javascript"></script>
@@ -234,6 +195,10 @@
         <script src="../layout/js/components/wow.min.js" type="text/javascript"></script>
         <script src="../layout/js/components/swiper.min.js" type="text/javascript"></script>
         <script src="../layout/js/components/masonry.min.js" type="text/javascript"></script>
+        
+        <!-- Check if user is logged -->
+        <script type="text/javascript" src="../views/checkSession.js"></script>
+        <!-- End Check -->
 
     </body>
     <!-- END BODY -->

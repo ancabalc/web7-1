@@ -10,7 +10,7 @@ function Provider(options) {
 Provider.prototype.getTopThree = function(){
     var that = this;
     return $.ajax({
-            url:"https://web7-1new-georgianam.c9users.io/api/users/listUsers",
+            url:"/api/users/listUsers",
             type:"GET",
             dataType:"json",
             success:function(resp){

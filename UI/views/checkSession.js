@@ -6,25 +6,56 @@ $(window).ready(function(){
                 type:"GET",
                 success:function(resp) {
                     if (resp.logged ===  true ){
-                        //window.location.href = "/UI/pages";
-                        $('.userProfile').addClass('active');
-                        $('.userProfile').removeClass('hide');
-                        $('.signUp').addClass('hide');
-                        $('.signIn').addClass('hide');
-                        console.log(resp.user.email);
+                        var menu = 
+                        '<div class="collapse navbar-collapse nav-collapse">' +
+                            '<div class="menu-container">' +
+                                '<ul class="navbar-nav navbar-nav-right">' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-home" href="index.html">Home</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-applications" href="applications.html">Applications</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-profile" href="user-profile.html">User Profile</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a href="#" class="nav-item-child logoutBtn">Logout</a>' +
+                                    '</li>' +
+                                '</ul>' +
+                            '</div>' +
+                        '</div>';
+                        $('.menu').append(menu);
+                        activeClass();
                     } else {
-                        $('.userProfile').addClass('hide');
-                        $('.signUp').addClass('active');
-                        $('.signUp').removeClass('hide');
-                        $('.signIn').addClass('active');
-                        $('.logoutBtn').addClass('hide');
-                        $('.newApplication').addClass('hide');
-                        
-                        //$(".userLogged").append(resp.user.email);
+                        var menu =
+                        '<div class="collapse navbar-collapse nav-collapse">' +
+                            '<div class="menu-container">' +
+                                '<ul class="navbar-nav navbar-nav-right">' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-home" href="index.html">Home</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-applications" href="applications.html">Applications</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-signup" href="signup.html">Sign Up</a>' +
+                                    '</li>' +
+                                    '<li class="nav-item">' +
+                                        '<a class="nav-item-child js-login" href="login.html">Sign In</a>' +
+                                    '</li>' +
+                                '</ul>' +
+                            '</div>' +
+                        '</div>';
+                        $('.menu').append(menu);
+                        activeClass();
+
                     }
+                    
                 }
             })
         }
+        
         
     checkSession();
     
@@ -36,4 +67,18 @@ $(window).ready(function(){
                 }
             });
         });
+        
+        function activeClass() {
+            if (window.location.href.indexOf("index") != -1) {
+                $('.js-home').addClass('active');
+            } else if (window.location.href.indexOf("applications") != -1) {
+                $('.js-applications').addClass('active');
+            } else if (window.location.href.indexOf("signup") != -1) {
+                $('.js-signup').addClass('active');
+            } else if (window.location.href.indexOf("login") != -1) {
+                $('.js-login').addClass('active');
+            } else if (window.location.href.indexOf("user-profile") != -1) {
+                $('.js-profile').addClass('active');
+            } 
+        }
 });
