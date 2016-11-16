@@ -24,14 +24,6 @@
         <!--<link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">-->
         <link href="../layout/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="../layout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        
-        <!-- Jquery -->
-        <script   src="//code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
-        
-        <!-- JavaScript -->
-        
-        <script type="text/javascript" src="../views/login.js"></script>
-        <script type="text/javascript" src="../models/Users.js"></script>
 
         <!-- PAGE LEVEL PLUGIN STYLES -->
         <link href="../layout/css/animate.css" rel="stylesheet">
@@ -75,7 +67,7 @@
                             <ul class="navbar-nav navbar-nav-right">
                                 <!-- Home -->
                                 <li class="nav-item">
-                                    <a class="nav-item-child active" href="index.html">
+                                    <a class="nav-item-child hide" href="index.html">
                                         Home
                                     </a>
                                 </li>
@@ -83,30 +75,41 @@
 
                                 <!-- About -->
                                 <li class="nav-item">
-                                    <a class="nav-item-child" href="applications.html">
+                                    <a class="nav-item-child hide" href="applications.html">
                                         Applications
                                     </a>
                                 </li>
                                 <!-- End About -->
                                 <li class="nav-item">
-                                    <a class="nav-item-child" href="new-application.html">
+                                    <a class="nav-item-child newApplication hide" href="new-application.html">
                                         New Application
+                                    </a>
+                                </li>
+                                
+                                 <li class="nav-item">
+                                    <a class="nav-item-child userProfile hide" href="user-profile.html">
+                                        User-profile
                                     </a>
                                 </li>
 
 
                                 <!-- Work -->
                                 <li class="nav-item">
-                                    <a class="nav-item-child" href="singup.html">
+                                    <a class="nav-item-child signUp hide" href="singup.html">
                                         Sing-up
                                     </a>
                                 </li>
                                 <!-- End Work -->
 
                                 <!-- Contact -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="login.html">
+                                <li class="nav-item signIn">
+                                    <a class="nav-item-child hide" href="login.html">
                                         Sing-In
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-item-child logoutBtn hide">
+                                        Logout
                                     </a>
                                 </li>
                                 <!-- End Contact -->
@@ -205,6 +208,16 @@
 
         <!-- Back To Top -->
         <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+        
+        <!-- Jquery -->
+        <script   src="//code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+        
+        <!-- JavaScript -->
+        
+        <script type="text/javascript" src="../views/checkSession.js"></script>
+        <script type="text/javascript" src="../views/login.js"></script>
+        <script type="text/javascript" src="../models/Users.js"></script>
+        <script type="text/javascript" src="../views/checkSession.js"></script>
 
         <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->

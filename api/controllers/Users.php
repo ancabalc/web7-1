@@ -26,7 +26,7 @@ class Users extends DB {
             $user = $usersModel->updateUser($_POST);
             if ($user) {
                 $response = array("success"=>TRUE);
-                move_uploaded_file($file["tmp_name"], "uploads/".$file["name"]);
+                move_uploaded_file($file["tmp_name"], "../uploads/".$file["name"]);
             }
             else {
                $response = array("error"=>"error");        

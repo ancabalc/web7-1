@@ -7,6 +7,10 @@ require "helpers/functions.php";
 $routes = [];
 $routes["/api/accounts/login"] = array("controller" => "Accounts",
                                     "method" => "login");
+$routes["/api/accounts/logout"] = array("controller" => "Accounts",
+                                    "method" => "logout");
+$routes["/api/accounts/check-session"] = array("controller" => "Accounts",
+                                    "method" => "checkSession");
 $routes["/api/accounts/create"] = array("controller" => "Accounts",
                                     "method" => "create");
 $routes["/api/users/update"] = array("controller" => "Users",
