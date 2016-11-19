@@ -12,7 +12,8 @@ $(window).ready(function(){
         $(".profile").append("<h2>"+userModel.name+"'s Profile</h2>");
         $("[name='name']").val(userModel.name);
         $("[job='job']").val(userModel.job);
-        $("[name='description']").val(userModel.description);
+        $("[description='description']").val(userModel.description);
+        $("[role='role']").val(userModel.role);
         image = userModel.image;
         $(".img-responsive").attr("src", '/uploads/' + userModel.image);
         

@@ -81,9 +81,9 @@ Users.prototype.getUserProfile= function(){
             type:"GET",
             dataType:"json",
             success:function(resp){
-                var user = currentUser(resp.user);
-                that.model = user;
-                    if(user.profile==='provider'){
+                var users = currentUser(resp.user);
+                that.model = users;
+                    if($('.role-input:checked')==='provider'){
                         window.location.href = "/pages/provider.html";
                     }else {
                         window.location.href = "/pages/client.html";

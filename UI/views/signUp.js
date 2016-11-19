@@ -73,6 +73,11 @@ $(window).ready(function(){
         
         var users = new Users();
         users.save(formData);
-        window.location.href = "/UI/pages/user-profile.html";
+        
+        if($('.role-input:checked')==='provider'){
+            window.location.href = "/pages/provider.html";
+        }else {
+            window.location.href = "/pages/client.html";
+        }
     });
 });

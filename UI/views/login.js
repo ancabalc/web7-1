@@ -18,9 +18,11 @@ $(window).ready(function(){
             var invalidCredentialsText = "Invalid Credentials!";
             $(".invalidCredentials").append(invalidCredentialsText);
          }
-         else {
-            window.location.href = "/UI/pages/user-profile.html";
-         }
+         else if($('.role-input:checked')==='provider'){
+            window.location.href = "/pages/provider.html";
+        }else {
+            window.location.href = "/pages/client.html";
+        }
     }
         
 });
