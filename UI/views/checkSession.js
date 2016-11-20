@@ -1,3 +1,4 @@
+/*global $*/
 $(window).ready(function(){
     
     function checkSession(){
@@ -62,7 +63,7 @@ $(window).ready(function(){
                     }
                     
                 }
-            })
+            });
         }
         
         

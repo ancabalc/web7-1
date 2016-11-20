@@ -12,7 +12,7 @@
             dataType:"json",
             success:function(resp){
                 for(var i = 0; i<resp.length; i++){
-                       var application = new Application(resp[i]);
+                       var application = new Applications(resp[i]);
                        that.models.push(application);
                 }
             },
@@ -21,7 +21,7 @@
             }
     });
     
-}
+};
 
 Applications.prototype.getLoggedUserApplications = function() {
     return $.ajax({
