@@ -10,19 +10,19 @@ $(window).ready(function(){
         var password = $("[name='password']").val();
         var userDef = user.loginUser(email,password);
         userDef.done(listUser);
-    });
+    
     
     function listUser() {
-         if(window.loginResp.errors) {
+        if(window.loginResp.errors) {
             $('.invalidCredentials').html('');
             var invalidCredentialsText = "Invalid Credentials!";
             $(".invalidCredentials").append(invalidCredentialsText);
-         }
-         else if($('.role-input:checked')==='provider'){
+        }
+        else if(user.role==='provider'){
             window.location.href = "/pages/provider.html";
         }else {
             window.location.href = "/pages/client.html";
         }
     }
-        
+    });
 });

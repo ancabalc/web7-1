@@ -74,7 +74,7 @@ $(window).ready(function(){
         var users = new Users();
         users.save(formData);
         
-        if($('.role-input:checked')==='provider'){
+        if(users.role==='provider'){
             window.location.href = "/pages/provider.html";
         }else {
             window.location.href = "/pages/client.html";
